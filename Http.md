@@ -1067,3 +1067,17 @@ public class Client {
 - Second GET uses `If-None-Match` and `If-Modified-Since` headers to check if the resource has changed
 - If the resource is unchanged, it receives a `304 Not Modified` response
 - If the resource has changed, it receives a new response with updated data
+
+## HTTP Content-Negotiation
+- Mechanism in which client and server decides on which representation of a resource to exchange based on client preferences and server capabilities.
+- This ensures that the client gets the format that it can handle and server gets the format that it can provide.
+- Content negotiation can be done using:
+    - **Accept Headers:** Client specifies the media types it can accept in the `Accept` header
+    - **Content-Type Header:** Server specifies the media type of the response in the `Content-Type` header
+    - **Language Negotiation:** Client specifies the language it prefers in the `Accept-Language` header
+    - **Encoding Negotiation:** Client specifies the encoding it prefers in the `Accept-Encoding` header
+    - **Charset Negotiation:** Client specifies the character set it prefers in the `Accept-Charset` header
+- Content negotiation can be done in three ways:
+    - **Server-driven negotiation:** Server decides the best representation based on client preferences and server capabilities. Example: If a client says "ACCEPT: application/json", the server can respond with JSON data
+    - **Client-driven negotiation:** Client decides the best representation based on server capabilities. Example: If a server says "ACCEPT: application/json", the client can request JSON data
+    - **Agent-driven negotiation:** An intermediary (e.g., proxy) decides the best representation based on client preferences and server capabilities. Example: If a proxy says "ACCEPT: application/json", the client can request JSON data
